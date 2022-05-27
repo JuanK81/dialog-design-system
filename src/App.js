@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+
+import AcctionButton from './components/AcctionButton';
+import Modal from './components/Modal';
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('');
+
+  const modalattentionHandler = () => {
+    setShowModal(true);
+    setModalType('cuidado');
+  };
+
+  const modalErrorHandler = () => {
+    setShowModal(true);
+    setModalType('error');
+  };
+  const modalOkHandler = () => {
+    setShowModal(true);
+    setModalType('ok');
+  };
+
+  const closeHandler = () => {
+    console.log('first');
+    setShowModal(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {showModal && (
+        <Modal
+          type={modalType}
+          onClose={closeHandler}
+          onErase={closeHandler}
+          onCancel={closeHandler}
+        />
+      )}
+      <div className="app">
+        <h1>Dialog Design System</h1>
+        <div className="app_acctions">
+          <AcctionButton
+            type="white"
+            onClick={modalattentionHandler}
+            text="Cuidado"
+          />
+          <AcctionButton type="white" onClick={modalOkHandler} text="Vamos" />
+          <AcctionButton type="white" onClick={modalErrorHandler} text="Upss" />
+        </div>
+      </div>
+    </>
   );
 }
 
