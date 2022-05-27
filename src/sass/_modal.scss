@@ -31,7 +31,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    padding: .5rem;
+    padding: 0.5rem;
     height: 12rem;
     width: 12rem;
     font-size: 9.5rem;
@@ -63,12 +63,48 @@
     height: 6rem;
     width: 6rem;
     z-index: 300;
-    transition: all .15s ease-out;
+    transition: all 0.15s ease-out;
 
     &:hover {
-    // background-color: $color-secondary;
-    // color: $color-primary;
-    // font-weight: 700;
+      transform: translateY(-0.3rem);
+      box-shadow: 0 0.8rem 0.6rem rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0rem);
+      box-shadow: 0 0rem 0rem rgba(0, 0, 0, 1);
+    }
+  }
+}
+
+.warning {
+  background-color: $color-yellow-light;
+  color: $color-yellow;
+}
+
+.error {
+  background-color: $color-red-light;
+  color: $color-red;
+}
+
+.success {
+  background-color: $color-green-light;
+  color: $color-green;
+}
+
+.acction-button {
+  background-color: $color-primary;
+  color: #fff;
+  border-radius: 1rem;
+  margin: 2rem;
+  padding: 1.5rem 2.5rem;
+  border: 0.2rem solid $color-primary;
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: 0.15rem;
+  transition: all .15s ease-out;
+
+  &:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 0.8rem 0.6rem rgba(0, 0, 0, 0.3);
   }
@@ -77,20 +113,11 @@
     transform: translateY(0rem) ;
     box-shadow: 0 0rem 0rem rgba(0, 0, 0, 1);
   }
-  }
 }
 
-.cuidado {
-  background-color: $color-yellow-light;
-  color: $color-yellow;
+.white {
+  background-color: #fff;
+  color: $color-primary;
+  font-weight: 200;
 }
 
-.error {
-   background-color: $color-red-light;
-   color: $color-red;
-}
-
-.ok {
-   background-color: $color-green-light;
-   color: $color-green;
-}

@@ -7,22 +7,27 @@ function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
 
-  const modalattentionHandler = () => {
+  const modalWarningHandler = () => {
     setShowModal(true);
-    setModalType('cuidado');
+    setModalType('warning');
   };
 
   const modalErrorHandler = () => {
     setShowModal(true);
     setModalType('error');
   };
-  const modalOkHandler = () => {
+  const modalsuccessHandler = () => {
     setShowModal(true);
-    setModalType('ok');
+    setModalType('success');
   };
 
   const closeHandler = () => {
-    console.log('first');
+    setShowModal(false);
+  };
+  const cancelHandler = () => {
+    setShowModal(false);
+  };
+  const eraseHandler = () => {
     setShowModal(false);
   };
 
@@ -32,8 +37,8 @@ function App() {
         <Modal
           type={modalType}
           onClose={closeHandler}
-          onErase={closeHandler}
-          onCancel={closeHandler}
+          onErase={eraseHandler}
+          onCancel={cancelHandler}
         />
       )}
       <div className="app">
@@ -41,11 +46,19 @@ function App() {
         <div className="app_acctions">
           <AcctionButton
             type="white"
-            onClick={modalattentionHandler}
-            text="Cuidado"
+            onClick={modalWarningHandler}
+            text="warning"
           />
-          <AcctionButton type="white" onClick={modalOkHandler} text="Vamos" />
-          <AcctionButton type="white" onClick={modalErrorHandler} text="Upss" />
+          <AcctionButton
+            type="white"
+            onClick={modalsuccessHandler}
+            text="success"
+          />
+          <AcctionButton
+            type="white"
+            onClick={modalErrorHandler}
+            text="error"
+          />
         </div>
       </div>
     </>
@@ -53,3 +66,11 @@ function App() {
 }
 
 export default App;
+
+//  Task 1 → Que se pueda ver el diseño de los diálogos de warning
+
+// ✅ Task 2 → Que se pueda ver el diseño para los diálogos de success
+
+// ✅ Task 3 → Que se pueda ver el diseño para los diálogos de error
+
+// ✅ Task 4 → Que se pueda ver 3 botones para abrir cada uno de los diálogos y las acciones de cerrar y aceptar son funcionales

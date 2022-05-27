@@ -1,7 +1,7 @@
 import AcctionButton from './AcctionButton';
 
 const Modal = (props) => {
-  if (props.type === 'cuidado') {
+  if (props.type === 'warning') {
     return (
       <div className="modal-container">
         <div className="modal">
@@ -12,17 +12,14 @@ const Modal = (props) => {
           <h2 className="modal_title">¡Cuidado!</h2>
           <p className="modal_text">No podrás volver atrás</p>
           <div className="modal_acctions">
-            <AcctionButton onCklic={props.onErase} text="Borrar" />
-            <AcctionButton
-              type="white"
-              onCklic={props.onCancel}
-              text="Cancelar"
-            />
+            <AcctionButton className="acction-button" onClick={props.onErase} text='Borrar'/>
+
+            <AcctionButton className="acction-button" type="white" onClick={props.onCancel} text='Cancelar'/> 
           </div>
         </div>
       </div>
     );
-  } else if (props.type === 'ok') {
+  } else if (props.type === 'success') {
     return (
       <div className="modal-container">
         <div className="modal">
@@ -33,7 +30,7 @@ const Modal = (props) => {
           <h2 className="modal_title">¡Vamos!</h2>
           <p className="modal_text">Todo Ha salido bien</p>
           <div className="modal_acctions">
-            <AcctionButton onCklic={props.onErase} text="Cerrar pestaña" />
+            <AcctionButton className="acction-button" text='Cerrar pestaña' onClick={props.onClose}/>
           </div>
         </div>
       </div>
